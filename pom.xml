@@ -1,12 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.automation.framework</groupId>
-  <artifactId>com.automation.framework</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>maven-hybrid-framework</name>
-  
-  
-   <!-- Khai báo biến - Global Variable -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.automation.framework</groupId>
+    <artifactId>com.automation.framework</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>maven-hybrid-framework</name>
+
+
+    <!-- Khai báo biến - Global Variable -->
     <properties>
         <!-- Encoding for Build/ Console -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,8 +29,9 @@
         <log4j.version>2.20.0</log4j.version>
         <reportng.version>1.1.4</reportng.version>
         <aspectj.version>1.9.20.1</aspectj.version>
+        <environment>dev</environment>
     </properties>
- <!-- Quản lí thư viện -->
+    <!-- Quản lí thư viện -->
     <dependencies>
         <!-- TestNG -->
         <dependency>
@@ -57,13 +59,13 @@
             <version>${reportng.version}</version>
             <scope>test</scope>
         </dependency>
-        
-		<dependency>
-		    <groupId>commons-io</groupId>
-		    <artifactId>commons-io</artifactId>
-		    <version>2.14.0</version>
-		</dependency>
-		
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
@@ -89,10 +91,10 @@
         </dependency>
 
         <dependency>
-   			<groupId>org.apache.logging.log4j</groupId>
-  		    <artifactId>log4j-core</artifactId>
-  			<version>${log4j.version}</version>
-		</dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -129,19 +131,25 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
-        
-		<dependency>
-		    <groupId>org.aspectj</groupId>
-		    <artifactId>aspectjweaver</artifactId>
-		    <version>${aspectj.version}</version>
-		    <scope>runtime</scope>
-		</dependency>
+
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.aeonbits.owner</groupId>
+            <artifactId>owner</artifactId>
+            <version>1.0.12</version>
+        </dependency>
 
     </dependencies>
 
-   <!-- Compiler/ Run Test -->
+    <!-- Compiler/ Run Test -->
     <build>
-		
+
         <plugins>
             <!-- Compiler -->
             <plugin>
@@ -154,7 +162,7 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-            
+
             <!-- Run test -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -175,6 +183,56 @@
         </plugins>
 
     </build>
-  
-  
+
+   <!-- <profiles>
+        <profile>
+            <id>DEV</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <configuration>
+                            &lt;!&ndash; Run TestNG xml file &ndash;&gt;
+                            <suiteXmlFiles>
+                                <suiteXmlFile>environmentRunner/dev.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+
+                            &lt;!&ndash; Argument &ndash;&gt;
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+        <profile>
+            <id>TESTING</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <configuration>
+                            &lt;!&ndash; Run TestNG xml file &ndash;&gt;
+                            <suiteXmlFiles>
+                                <suiteXmlFile>environmentRunner/testing.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+
+                            &lt;!&ndash; Argument &ndash;&gt;
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+-->
 </project>

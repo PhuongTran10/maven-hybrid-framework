@@ -9,11 +9,11 @@
 		<listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
 		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"></listener>
 	</listeners>
-	<parameter name="environment" value="dev" />
+<!--	<parameter name="environment" value="dev" />-->
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_14_Log_ReportNG" />
+			<class name="com.nopcommerce.user.Level_23_Multiple_Environment_Part_III_Owner_Cmd" />
 		</classes>
 	</test>
 	<!--<test name="Run on Chrome">
