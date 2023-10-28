@@ -13,7 +13,7 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
-			<class name="com.nopcommerce.user.Level_23_Multiple_Environment_Part_III_Owner_Cmd" />
+			<class name="com.nopcommerce.user.Level_19_Pattern_Object" />
 		</classes>
 	</test>
 	<!--<test name="Run on Chrome">
