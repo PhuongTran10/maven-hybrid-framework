@@ -1,10 +1,5 @@
 package com.nopcommerce.user;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.nopcommerce.data.UserData_No_SubClass;
@@ -16,12 +11,20 @@ import pageObjects.nopCommerce.user.UserHomePageObject;
 import pageObjects.nopCommerce.user.UserLoginPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 
-public class Level_19_Pattern_Object extends BaseTest{
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+
+public class Level_25_Test_On_Browserstack extends BaseTest{
 	
-	@Parameters("browser")
+	@Parameters({"browser","url", "osName", "osVersion"})
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+	public void beforeClass(String browserName, String appUrl, String osName, String osVersion) {
+		driver = getBrowserDriverBrowserstack(browserName, appUrl, osName, osVersion);
+		System.out.println(browserName +"   " + osName);
 		homePage = PageGeneratorManager.getUserHomePage(driver);
 				
 		firstName = UserData_No_SubClass.FIRSTNAME;
