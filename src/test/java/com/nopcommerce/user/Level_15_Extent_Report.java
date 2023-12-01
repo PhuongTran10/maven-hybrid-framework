@@ -42,7 +42,7 @@ public class Level_15_Extent_Report extends BaseTest{
 	public void User_01_Register(Method method) {
 		ExtentTestManager.startTest(method.getName(), "Enter To Exam Organization Information");
 		
-		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 01: Navigate to 'Register' page");
+		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 01: Navigate to 'Register người dùng' page");
 		registerPage = homePage.clickToRegisterLink();
 		
 		ExtentTestManager.getTest().log(Status.INFO, "Register - Step 02: Enter to Firstname textbox with value is '" + firstName + "'");
